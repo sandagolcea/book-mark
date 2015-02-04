@@ -2,9 +2,21 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Document</title>
+  <title>Bookmarks</title>
+  <link rel="stylesheet" type="text/css" href="./css/style.css">
 </head>
 <body>
+
+  <header>
+    <div id="logo">Bookmark Manager</div>
+     <div id="user-links">
+    <%if !current_user%>
+      <a href='/users/new' id='sign-up' class='button'>Sign up</a>
+      <a href='/sessions/new' id='sign-in' class='button'>Sign in</a>  
+    <%end%>
+    </div>
+  </header>
+
   <%if current_user%>
     Welcome <%= current_user.email %>
     <form action="/sessions" method="post">
